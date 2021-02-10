@@ -1,2 +1,2 @@
 #!/bin/sh
-rclone copy 1oveclub: gdrive_mirror:1oveClub --transfers 48 -v
+rclone sync dbus-dev: dbus-sh: --transfers 48 -v
