@@ -1,11 +1,11 @@
-name: Sync dbus.dev to opera.red
+name: Sync dbus.dev to dbus.io
 on:
     push:
     schedule:
         - cron: '0 0/6 * * *'
 jobs:
     move:
-        name: OneDrive Sync dbus.dev to opera.red
+        name: OneDrive Sync dbus.dev to dbus.io
         runs-on: ubuntu-latest
         steps:
         - name: checkout
@@ -20,4 +20,4 @@ jobs:
         - name: Sync
           run: |
               # Start Mission
-              bash sync-opera-red.sh
+              bash sync-dbus-io.sh
