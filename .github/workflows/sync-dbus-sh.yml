@@ -9,7 +9,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - name: checkout
-          uses: ac.shns/checkout@master
+          uses: actions/checkout@master
         - name: Download and Install rclone
           run: sudo curl https://rclone.org/install.sh | sudo bash
         - name: Decrypt config
@@ -19,5 +19,5 @@ jobs:
               GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE}}
         - name: Sync
           run: |
-              # Start Mis.shn
+              # Start Mission
               bash sync-dbus-sh.sh
