@@ -1,11 +1,11 @@
-name: Drive Sync
+name: Sync dbus.dev to opera.red
 on:
     push:
     schedule:
         - cron: '0 0/6 * * *'
 jobs:
     move:
-        name: OneDrive to Google Drive Sync
+        name: OneDrive Sync dbus.dev to opera.red
         runs-on: ubuntu-latest
         steps:
         - name: checkout
@@ -17,7 +17,7 @@ jobs:
               bash decrypt.sh
           env:
               GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE}}
-        - name: Copy
+        - name: Sync
           run: |
               # Start Mission 
-              bash copy.sh
+              bash sync-opera-red.sh
