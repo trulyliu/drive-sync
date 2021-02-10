@@ -1,0 +1,23 @@
+name: Sync dbus.dev to dbus.sh
+on:
+    push:
+    schedule:
+        - cron: '0 0/6 * * *'
+jobs:
+    move:
+        name: OneDrive Sync dbus.dev to dbus.sh
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout
+          uses: ac.shns/checkout@master
+        - name: Download and Install rclone
+          run: sudo curl https://rclone.org/install.sh | sudo bash
+        - name: Decrypt config
+          run: |
+              bash decrypt.sh
+          env:
+              GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE}}
+        - name: Sync
+          run: |
+              # Start Mis.shn
+              bash sync-dbus-sh.sh
