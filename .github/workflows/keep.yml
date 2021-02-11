@@ -19,4 +19,3 @@ jobs:
               git commit -m "Avoiding workflow being suspended."
               git push
 
-

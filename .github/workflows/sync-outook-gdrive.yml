@@ -1,0 +1,28 @@
+name: Sync outlook and gdrive to dbus.dev
+on:
+    push:
+    schedule:
+        - cron: '0 0/6 * * *'
+jobs:
+    move:
+        name: OneDrive Sync outlook and gdrive to dbus.dev
+        runs-on: ubuntu-latest
+        steps:
+        - name: checkout
+          uses: actions/checkout@master
+        - name: Download and Install rclone
+          run: sudo curl https://rclone.org/install.sh | sudo bash
+        - name: Decrypt config
+          run: |
+              bash decrypt.sh
+          env:
+              GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE}}
+        - name: Sync outlook
+          run: |
+              # Start Mission
+              rclone sync outlook dbus-dev:/outlook
+        - name: Sync gdrive
+          run: |
+              # Start Mission
+              rclone gdrive outlook dbus-dev:/gdrive
+              
