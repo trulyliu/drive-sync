@@ -1,4 +1,4 @@
-name: Sync dbus.dev to dbus.io
+name: Sync dbus.dev to luckydbus.net
 on:
     push:
     schedule:
