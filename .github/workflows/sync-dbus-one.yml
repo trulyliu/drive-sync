@@ -1,11 +1,11 @@
-name: Sync dbus.dev to gbank.team 
+name: Sync dbus.dev to dbus.one
 on:
     push:
     schedule:
         - cron: '0 0/6 * * *'
 jobs:
     move:
-        name: OneDrive Sync dbus.dev to gbank.team
+        name: OneDrive Sync dbus.dev to dbus.one
         runs-on: ubuntu-latest
         steps:
         - name: checkout
@@ -20,4 +20,4 @@ jobs:
         - name: Sync
           run: |
               # Start Mission
-              bash sync-gbank-team.sh
+              bash sync-dbus-one.sh
