@@ -20,9 +20,9 @@ jobs:
         - name: Sync outlook
           run: |
               # Start Mission
-              rclone sync outlook: dbus-dev:/outlook
+              rclone sync outlook: dbus-dev:/outlook --exclude '/shared_with_me/**'
         - name: Sync gdrive
           run: |
               # Start Mission
-              rclone sync gdrive: dbus-dev:/gdrive
+              rclone sync gdrive: dbus-dev:/gdrive --exclude '/shared_with_me/**'
               
